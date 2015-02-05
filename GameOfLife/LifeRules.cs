@@ -4,11 +4,11 @@ namespace GameOfLife
     {
         public CellState GetNewState(CellState currentState, int liveNeighbours)
         {
-            if (liveNeighbours == 1)
+            if (liveNeighbours == 3)
             {
-                return CellState.Dead;
+                return CellState.Alive;
             }
-            return CellState.Alive;
+            return CellState.Dead;
         }
     }
 }
