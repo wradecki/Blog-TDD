@@ -1,5 +1,6 @@
 ﻿using FluentAssertions;
 using Xunit;
+using Xunit.Extensions;
 
 namespace GameOfLife.Tests
 {
@@ -20,17 +21,14 @@ namespace GameOfLife.Tests
             actual.Should().Be(expected);
         }
 
-        [Fact]
-        public void When_live_cell_has_fewer_than_two_live_neigtbours＿＿Then_return_dead()
+        [Theory]
+        [InlineData(1)]
+        public void When_live_cell_has_fewer_than_two_live_neigtbours＿＿Then_return_dead(int liveNeighbours)
         {
             var currentState = CellState.Alive;
             var sut = new LifeRules();
-
-            var liveNeighbours = 1;
             CellState actual = sut.GetNewState(currentState, liveNeighbours);
-
             var expected = CellState.Dead;
-
             actual.Should().Be(expected);
         }
     }
