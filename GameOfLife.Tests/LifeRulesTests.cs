@@ -32,5 +32,20 @@ namespace GameOfLife.Tests
             var expected = CellState.Dead;
             actual.Should().Be(expected);
         }
+
+        // When live cell has 3 live neighbours Then return alive
+        [Fact]
+        public void When_live_cell_has_3_live_neighbours＿＿Then_return_alive()
+        {
+            CellState currentState = CellState.Alive;
+            LifeRules sut = new LifeRules();
+            var liveNeighbours = 3;
+
+            CellState actual = sut.GetNewState(currentState, liveNeighbours);
+
+            CellState expected = CellState.Alive;
+
+            actual.Should().Be(expected);
+        }
     }
 }
