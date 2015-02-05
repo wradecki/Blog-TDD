@@ -8,9 +8,13 @@ namespace GameOfLife
             {
                 return CellState.Alive;
             }
-            if (liveNeighbours == 2)
+            if (liveNeighbours == 2 && currentState == CellState.Alive)
             {
                 return CellState.Alive;
+            }
+            if (liveNeighbours == 2 && currentState == CellState.Dead)
+            {
+                return CellState.Dead;
             }
             return CellState.Dead;
         }
