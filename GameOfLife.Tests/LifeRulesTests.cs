@@ -47,5 +47,20 @@ namespace GameOfLife.Tests
 
             actual.Should().Be(expected);
         }
+
+        // When live cell has 2 live neighbours Then return alive
+        [Fact]
+        public void When_live_cell_has_2_live_neighbours＿＿Then_return_alive()
+        {
+            CellState currentState = CellState.Alive;
+            LifeRules sut = new LifeRules();
+            var liveNeighbours = 2;
+
+            CellState actual = sut.GetNewState(currentState, liveNeighbours);
+
+            CellState expected = CellState.Alive;
+
+            actual.Should().Be(expected);
+        }
     }
 }
