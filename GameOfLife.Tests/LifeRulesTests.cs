@@ -23,6 +23,7 @@ namespace GameOfLife.Tests
 
         [Theory]
         [InlineData(1)]
+        [InlineData(0)]
         public void When_live_cell_has_fewer_than_two_live_neigtbours＿＿Then_return_dead(int liveNeighbours)
         {
             var currentState = CellState.Alive;
