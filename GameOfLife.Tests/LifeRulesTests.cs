@@ -62,5 +62,20 @@ namespace GameOfLife.Tests
 
             actual.Should().Be(expected);
         }
+
+
+        [Fact]
+        public void When_dead_cell_has_2_live_neighbours＿＿Then_return_alive()
+        {
+            CellState currentState = CellState.Dead;
+            LifeRules sut = new LifeRules();
+            var liveNeighbours = 2;
+
+            CellState actual = sut.GetNewState(currentState, liveNeighbours);
+
+            CellState expected = CellState.Dead;
+
+            actual.Should().Be(expected);
+        }
     }
 }
