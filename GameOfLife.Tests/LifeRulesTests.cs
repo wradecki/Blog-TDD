@@ -89,9 +89,9 @@ namespace GameOfLife.Tests
         {
             var currentState = CellState.Dead;
             var sut = new LifeRules();
-            CellState actual = sut.GetNewState(currentState, liveNeighbours);
+            Cell actual = sut.GetNewState(currentState, liveNeighbours);
             var expected = CellState.Dead;
-            actual.Should().Be(expected);
+            actual.State.Should().Be(expected);
         }
     }
 }

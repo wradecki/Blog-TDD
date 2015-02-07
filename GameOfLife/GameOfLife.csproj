@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cell.cs" />
     <Compile Include="CellState.cs" />
     <Compile Include="LifeRules.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

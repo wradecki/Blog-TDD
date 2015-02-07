@@ -2,7 +2,7 @@ namespace GameOfLife
 {
     public class LifeRules
     {
-        public CellState GetNewState(CellState currentState, int liveNeighbours)
+        public Cell GetNewState(CellState currentState, int liveNeighbours)
         {
             if (liveNeighbours == 3)
             {
