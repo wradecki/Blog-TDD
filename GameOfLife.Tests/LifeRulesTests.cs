@@ -79,17 +79,18 @@ namespace GameOfLife.Tests
         }
 
         // When live cell has more than 3 live neighbours Then return dead
-        [Fact]
-        public void When_live_cell_has_more_than_3_live_neighbours＿＿Then_return_dead()
+        [Theory]
+        [InlineData(4)]
+        [InlineData(5)]
+        [InlineData(6)]
+        [InlineData(7)]
+        [InlineData(8)]
+        public void When_live_cell_has_more_than_3_live_neighbours＿＿Then_return_dead(int liveNeighbours)
         {
             var currentState = CellState.Dead;
             var sut = new LifeRules();
-            var liveNeighbours = 4;
-
             CellState actual = sut.GetNewState(currentState, liveNeighbours);
-
             var expected = CellState.Dead;
-
             actual.Should().Be(expected);
         }
     }
