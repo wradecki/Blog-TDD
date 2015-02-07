@@ -2,17 +2,17 @@ namespace GameOfLife
 {
     public class LifeRules
     {
-        public Cell GetNewState(CellState currentState, int liveNeighbours)
+        public Cell GetNewState(Cell currentCell, int liveNeighbours)
         {
             if (liveNeighbours == 3)
             {
-                return CellState.Alive;
+                return new Cell(CellState.Alive);
             }
             if (liveNeighbours == 2)
             {
-                return currentState;
+                return currentCell;
             }
-            return CellState.Dead;
+            return new Cell(CellState.Dead);
         }
     }
 }

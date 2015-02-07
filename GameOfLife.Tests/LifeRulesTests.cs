@@ -10,15 +10,15 @@ namespace GameOfLife.Tests
         [Fact]
         public void When_dead_cell_with_exactly_3_live_neightburs＿＿Then_return_alive()
         {
-            CellState currentState = CellState.Dead;
-            LifeRules sut = new LifeRules();
+            var currentCell = new Cell(CellState.Dead);
+            var sut = new LifeRules();
             var liveNeighbours = 3;
 
-            CellState actual = sut.GetNewState(currentState, liveNeighbours);
+            Cell result = sut.GetNewState(currentCell, liveNeighbours);
             
-            CellState expected = CellState.Alive;
+            var expected = CellState.Alive;
 
-            actual.Should().Be(expected);
+            result.State.Should().Be(expected);
         }
 
         [Theory]
@@ -26,56 +26,56 @@ namespace GameOfLife.Tests
         [InlineData(0)]
         public void When_live_cell_has_fewer_than_two_live_neigtbours＿＿Then_return_dead(int liveNeighbours)
         {
-            var currentState = CellState.Alive;
+            var currentCell = new Cell(CellState.Alive);
             var sut = new LifeRules();
-            CellState actual = sut.GetNewState(currentState, liveNeighbours);
+            Cell result = sut.GetNewState(currentCell, liveNeighbours);
             var expected = CellState.Dead;
-            actual.Should().Be(expected);
+            result.State.Should().Be(expected);
         }
 
         // When live cell has 3 live neighbours Then return alive
         [Fact]
         public void When_live_cell_has_3_live_neighbours＿＿Then_return_alive()
         {
-            CellState currentState = CellState.Alive;
-            LifeRules sut = new LifeRules();
+            var currentCell = new Cell(CellState.Alive);
+            var sut = new LifeRules();
             var liveNeighbours = 3;
 
-            CellState actual = sut.GetNewState(currentState, liveNeighbours);
+            Cell result = sut.GetNewState(currentCell, liveNeighbours);
 
-            CellState expected = CellState.Alive;
+            var expected = CellState.Alive;
 
-            actual.Should().Be(expected);
+            result.State.Should().Be(expected);
         }
 
         // When live cell has 2 live neighbours Then return alive
         [Fact]
         public void When_live_cell_has_2_live_neighbours＿＿Then_return_alive()
         {
-            CellState currentState = CellState.Alive;
-            LifeRules sut = new LifeRules();
+            var currentCel = new Cell(CellState.Alive);
+            var sut = new LifeRules();
             var liveNeighbours = 2;
 
-            CellState actual = sut.GetNewState(currentState, liveNeighbours);
+            Cell result = sut.GetNewState(currentCel, liveNeighbours);
 
-            CellState expected = CellState.Alive;
+            var expected = CellState.Alive;
 
-            actual.Should().Be(expected);
+            result.State.Should().Be(expected);
         }
 
 
         [Fact]
         public void When_dead_cell_has_2_live_neighbours＿＿Then_return_alive()
         {
-            CellState currentState = CellState.Dead;
-            LifeRules sut = new LifeRules();
+            Cell currentCell = new Cell(CellState.Dead);
+            var sut = new LifeRules();
             var liveNeighbours = 2;
 
-            CellState actual = sut.GetNewState(currentState, liveNeighbours);
+            Cell result = sut.GetNewState(currentCell, liveNeighbours);
 
-            CellState expected = CellState.Dead;
+            var expected = CellState.Dead;
 
-            actual.Should().Be(expected);
+            result.State.Should().Be(expected);
         }
 
         // When live cell has more than 3 live neighbours Then return dead
@@ -87,11 +87,11 @@ namespace GameOfLife.Tests
         [InlineData(8)]
         public void When_live_cell_has_more_than_3_live_neighbours＿＿Then_return_dead(int liveNeighbours)
         {
-            var currentState = CellState.Dead;
+            Cell currentCell = new Cell(CellState.Dead);
             var sut = new LifeRules();
-            Cell actual = sut.GetNewState(currentState, liveNeighbours);
+            Cell result = sut.GetNewState(currentCell, liveNeighbours);
             var expected = CellState.Dead;
-            actual.State.Should().Be(expected);
+            result.State.Should().Be(expected);
         }
     }
 }
